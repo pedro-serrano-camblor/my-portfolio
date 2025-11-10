@@ -48,7 +48,11 @@ export default function ProfessionalGameView({ game }: ProfessionalGameViewProps
         <div className="flex items-center gap-2 text-slate-700">
           <User className="h-5 w-5 text-slate-500" />
           <span className="font-medium">{t('games.role')}:</span>
-          <span>{game.role}</span>
+          <span>
+            {t(`games.games.${game.id}.role`) !== `games.games.${game.id}.role` 
+              ? t(`games.games.${game.id}.role`) 
+              : game.role}
+          </span>
         </div>
       )}
 
@@ -100,7 +104,7 @@ export default function ProfessionalGameView({ game }: ProfessionalGameViewProps
               <iframe
                 src={game.gameUrl}
                 className="h-full w-full"
-                title={`Preview de ${game.title}`}
+                title={`${t('games.preview')} - ${game.title}`}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 loading="lazy"

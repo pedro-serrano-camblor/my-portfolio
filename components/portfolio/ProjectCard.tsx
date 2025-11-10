@@ -25,6 +25,14 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
     router.push(`/portfolio/${project.slug}`);
   };
 
+  // Obtener descripción traducida
+  const getTranslatedDescription = (): string => {
+    const translationKey = `portfolio.projects.${project.id}.description`;
+    const translated = t(translationKey);
+    // Si la traducción no existe, usar la descripción original
+    return translated !== translationKey ? translated : project.description;
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -51,7 +59,7 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
           {project.title}
         </h3>
         <p className="mt-2 text-sm text-slate-600 line-clamp-2">
-          {project.description}
+          {getTranslatedDescription()}
         </p>
 
         {/* Tecnologías */}

@@ -5,8 +5,8 @@ import GamesSection from '@/components/games/GamesSection';
 import GamesEmptyState from '@/components/games/GamesEmptyState';
 
 export const metadata: Metadata = {
-  title: 'Juegos',
-  description: 'Proyectos de videojuegos desarrollados profesionalmente y en mi tiempo libre',
+  title: 'Games Portfolio',
+  description: 'Video game projects developed professionally and in my free time',
 };
 
 /**

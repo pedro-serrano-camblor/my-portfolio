@@ -13,6 +13,17 @@ interface ProjectDetailContentProps {
 export default function ProjectDetailContent({ project, allImages }: ProjectDetailContentProps) {
   const { t } = useI18n();
 
+  // Obtener descripción larga traducida
+  const getTranslatedLongDescription = (): string | undefined => {
+    const translationKey = `portfolio.projects.${project.id}.longDescription`;
+    const translated = t(translationKey);
+    // Si la traducción no existe, usar la descripción original
+    if (translated !== translationKey) {
+      return translated;
+    }
+    return project.longDescription;
+  };
+
   return (
     <>
       {/* Contenido */}
@@ -20,10 +31,10 @@ export default function ProjectDetailContent({ project, allImages }: ProjectDeta
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
             {/* Descripción detallada */}
-            {project.longDescription && (
+            {getTranslatedLongDescription() && (
               <div className="prose prose-slate max-w-none">
                 <p className="text-lg leading-8 text-slate-600 whitespace-pre-line">
-                  {project.longDescription}
+                  {getTranslatedLongDescription()}
                 </p>
               </div>
             )}

@@ -13,6 +13,13 @@ interface ProjectDetailHeaderProps {
 export default function ProjectDetailHeader({ project }: ProjectDetailHeaderProps) {
   const { t } = useI18n();
 
+  // Obtener descripción traducida
+  const getTranslatedDescription = (): string => {
+    const translationKey = `portfolio.projects.${project.id}.description`;
+    const translated = t(translationKey);
+    return translated !== translationKey ? translated : project.description;
+  };
+
   return (
     <section className="bg-gradient-to-br from-slate-50 to-slate-100 py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -28,7 +35,7 @@ export default function ProjectDetailHeader({ project }: ProjectDetailHeaderProp
             {project.title}
           </h1>
           <p className="mt-6 text-lg leading-8 text-slate-600">
-            {project.description}
+            {getTranslatedDescription()}
           </p>
           
           {/* Links */}

@@ -84,7 +84,9 @@ export default function ExperienceTimeline({ experiences }: ExperienceTimelinePr
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
                     <h3 className="text-xl font-semibold text-slate-900">
-                      {experience.title}
+                      {t(`about.experience.experiences.${experience.id}.title`) !== `about.experience.experiences.${experience.id}.title` 
+                        ? t(`about.experience.experiences.${experience.id}.title`) 
+                        : experience.title}
                     </h3>
                     <div className="mt-1 flex items-center gap-2">
                       <h4 className="text-lg font-medium text-slate-700">
@@ -138,7 +140,9 @@ export default function ExperienceTimeline({ experiences }: ExperienceTimelinePr
                 {/* Descripción */}
                 {experience.description && (
                   <p className="mt-4 text-sm text-slate-600">
-                    {experience.description}
+                    {t(`about.experience.experiences.${experience.id}.description`) !== `about.experience.experiences.${experience.id}.description` 
+                      ? t(`about.experience.experiences.${experience.id}.description`) 
+                      : experience.description}
                   </p>
                 )}
 

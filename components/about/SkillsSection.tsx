@@ -2,6 +2,7 @@
 
 import { Skill } from '@/types';
 import { motion } from 'framer-motion';
+import { useI18n } from '@/lib/i18n/context';
 
 interface SkillsSectionProps {
   skills: Skill[];
@@ -12,6 +13,8 @@ interface SkillsSectionProps {
  * Agrupa habilidades por categoría
  */
 export default function SkillsSection({ skills }: SkillsSectionProps) {
+  const { t } = useI18n();
+
   // Agrupar habilidades por categoría
   const skillsByCategory = skills.reduce((acc, skill) => {
     const category = skill.category || 'Otros';
@@ -21,6 +24,13 @@ export default function SkillsSection({ skills }: SkillsSectionProps) {
     acc[category].push(skill);
     return acc;
   }, {} as Record<string, Skill[]>);
+
+  // Función para obtener el nombre traducido de la categoría
+  const getTranslatedCategory = (category: string): string => {
+    const translationKey = `about.skills.categories.${category}`;
+    const translated = t(translationKey);
+    return translated !== translationKey ? translated : category;
+  };
 
   return (
     <div className="space-y-8">
@@ -33,7 +43,7 @@ export default function SkillsSection({ skills }: SkillsSectionProps) {
           transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
         >
           <h3 className="text-xl font-semibold text-slate-900 mb-4">
-            {category}
+            {getTranslatedCategory(category)}
           </h3>
           <div className="flex flex-wrap gap-3">
             {categorySkills.map((skill, index) => (
@@ -51,7 +61,9 @@ export default function SkillsSection({ skills }: SkillsSectionProps) {
                 <span>{skill.name}</span>
                 {skill.level && (
                   <span className="text-xs text-slate-500">
-                    ({skill.level})
+                    ({t(`about.skills.levels.${skill.level}`) !== `about.skills.levels.${skill.level}` 
+                      ? t(`about.skills.levels.${skill.level}`) 
+                      : skill.level})
                   </span>
                 )}
               </motion.span>

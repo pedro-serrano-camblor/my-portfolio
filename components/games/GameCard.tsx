@@ -26,6 +26,14 @@ export default function GameCard({ game, index = 0 }: GameCardProps) {
     router.push(`/games/${game.slug}`);
   };
 
+  // Obtener descripción traducida
+  const getTranslatedDescription = (): string => {
+    const translationKey = `games.games.${game.id}.description`;
+    const translated = t(translationKey);
+    // Si la traducción no existe, usar la descripción original
+    return translated !== translationKey ? translated : game.description;
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -64,7 +72,7 @@ export default function GameCard({ game, index = 0 }: GameCardProps) {
           {game.title}
         </h3>
         <p className="mt-2 text-sm text-slate-600 line-clamp-2">
-          {game.description}
+          {getTranslatedDescription()}
         </p>
 
         {/* Información adicional */}

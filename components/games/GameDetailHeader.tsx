@@ -14,6 +14,14 @@ export default function GameDetailHeader({ game }: GameDetailHeaderProps) {
   const { t } = useI18n();
   const isPersonal = game.gameType === 'personal';
 
+  // Obtener descripción traducida
+  const getTranslatedDescription = (): string => {
+    const translationKey = `games.games.${game.id}.description`;
+    const translated = t(translationKey);
+    // Si la traducción no existe, usar la descripción original
+    return translated !== translationKey ? translated : game.description;
+  };
+
   return (
     <section className="bg-gradient-to-br from-slate-50 to-slate-100 py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -42,7 +50,7 @@ export default function GameDetailHeader({ game }: GameDetailHeaderProps) {
             {game.title}
           </h1>
           <p className="mt-6 text-lg leading-8 text-slate-600">
-            {game.description}
+            {getTranslatedDescription()}
           </p>
         </div>
       </div>

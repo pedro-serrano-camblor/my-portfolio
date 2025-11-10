@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 
   return {
-    title: `${game.title} | Juegos`,
+    title: `${game.title} | Games Portfolio`,
     description: game.description,
   };
 }

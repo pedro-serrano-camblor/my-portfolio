@@ -4,8 +4,8 @@ import PortfolioHero from '@/components/portfolio/PortfolioHero';
 import PortfolioList from '@/components/portfolio/PortfolioList';
 
 export const metadata: Metadata = {
-  title: 'Portfolio',
-  description: 'Colección de proyectos y trabajos',
+  title: 'Dev Portfolio',
+  description: 'Web development projects and applications',
 };
 
 /**
