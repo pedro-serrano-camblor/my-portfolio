@@ -1,10 +1,6 @@
 /**
  * Función abstracta para cargar datos
- * En la Fase 1: carga desde archivos TypeScript
- * En la Fase 2 (futuro): puede modificarse para cargar desde base de datos (Prisma)
- * 
- * Esta abstracción permite migrar fácilmente de archivos a BD sin cambiar
- * los componentes que usan estos datos.
+ * Carga datos desde archivos TypeScript
  */
 
 import { Project } from '@/types/project';
