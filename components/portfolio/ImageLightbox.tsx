@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useI18n } from '@/lib/i18n/context';
 
 interface ImageLightboxProps {
   images: string[];
@@ -16,6 +17,7 @@ interface ImageLightboxProps {
  * Permite ver imágenes en pantalla completa con navegación
  */
 export default function ImageLightbox({ images, alt, initialIndex = 0 }: ImageLightboxProps) {
+  const { t } = useI18n();
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
 
@@ -80,7 +82,7 @@ export default function ImageLightbox({ images, alt, initialIndex = 0 }: ImageLi
             <button
               onClick={closeLightbox}
               className="absolute top-4 right-4 text-white hover:text-gray-300 z-10"
-              aria-label="Cerrar"
+              aria-label={t('common.close')}
             >
               <X className="h-8 w-8" />
             </button>
@@ -110,14 +112,14 @@ export default function ImageLightbox({ images, alt, initialIndex = 0 }: ImageLi
                   <button
                     onClick={prevImage}
                     className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-2 text-white hover:bg-white/20 transition-colors"
-                    aria-label="Imagen anterior"
+                    aria-label={t('common.previousImage')}
                   >
                     <ChevronLeft className="h-6 w-6" />
                   </button>
                   <button
                     onClick={nextImage}
                     className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-2 text-white hover:bg-white/20 transition-colors"
-                    aria-label="Imagen siguiente"
+                    aria-label={t('common.nextImage')}
                   >
                     <ChevronRight className="h-6 w-6" />
                   </button>

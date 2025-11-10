@@ -36,7 +36,7 @@ export default function HomeHero({ personalInfo }: HomeHeroProps) {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="mt-6 text-lg leading-8 text-slate-600"
           >
-            {personalInfo.title}
+            {t('personal.title')}
           </motion.p>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -44,7 +44,7 @@ export default function HomeHero({ personalInfo }: HomeHeroProps) {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mt-4 text-base leading-7 text-slate-500"
           >
-            {personalInfo.bio}
+            {t('home.hero.bio')}
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

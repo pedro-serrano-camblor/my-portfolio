@@ -75,7 +75,7 @@ export default function ProjectDetailContent({ project, allImages }: ProjectDeta
                         <div key={index} className="aspect-video w-full overflow-hidden rounded-lg">
                           <iframe
                             src={`https://www.youtube.com/embed/${videoId}`}
-                            title={`Video ${index + 1}`}
+                            title={`${t('common.videoNumber')} ${index + 1}`}
                             className="h-full w-full"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowFullScreen
@@ -90,7 +90,7 @@ export default function ProjectDetailContent({ project, allImages }: ProjectDeta
                         <div key={index} className="aspect-video w-full overflow-hidden rounded-lg">
                           <iframe
                             src={`https://player.vimeo.com/video/${videoId}`}
-                            title={`Video ${index + 1}`}
+                            title={`${t('common.videoNumber')} ${index + 1}`}
                             className="h-full w-full"
                             allow="autoplay; fullscreen; picture-in-picture"
                             allowFullScreen

@@ -65,7 +65,7 @@ export default function GameDetailContent({ game }: GameDetailContentProps) {
               >
                 <Image
                   src={screenshot}
-                  alt={`${game.title} screenshot ${index + 1}`}
+                  alt={`${game.title} ${t('common.screenshotNumber')} ${index + 1}`}
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 50vw, 33vw"
@@ -94,7 +94,7 @@ export default function GameDetailContent({ game }: GameDetailContentProps) {
                   <div key={index} className="aspect-video w-full overflow-hidden rounded-lg">
                     <iframe
                       src={`https://www.youtube.com/embed/${videoId}`}
-                      title={`Video ${index + 1}`}
+                      title={`${t('common.videoNumber')} ${index + 1}`}
                       className="h-full w-full"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
@@ -109,7 +109,7 @@ export default function GameDetailContent({ game }: GameDetailContentProps) {
                   <div key={index} className="aspect-video w-full overflow-hidden rounded-lg">
                     <iframe
                       src={`https://player.vimeo.com/video/${videoId}`}
-                      title={`Video ${index + 1}`}
+                      title={`${t('common.videoNumber')} ${index + 1}`}
                       className="h-full w-full"
                       allow="autoplay; fullscreen; picture-in-picture"
                       allowFullScreen

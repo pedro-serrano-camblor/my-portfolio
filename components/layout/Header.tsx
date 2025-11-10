@@ -33,7 +33,7 @@ export default function Header() {
         {/* Logo */}
         <div className="flex items-center">
           <Link href="/" className="text-2xl font-bold text-slate-900">
-            Portfolio
+            {t('common.siteName')}
           </Link>
         </div>
 
@@ -68,7 +68,7 @@ export default function Header() {
           <LanguageSwitcher />
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
+            aria-label={t('common.toggleMenu')}
           >
             {isMobileMenuOpen ? (
               <X className="h-6 w-6" />

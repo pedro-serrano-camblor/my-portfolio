@@ -104,7 +104,7 @@ export default function PersonalGameView({ game }: PersonalGameViewProps) {
       {game.unityBuildPath && (
         <div className="rounded-lg border border-amber-200 bg-amber-50 p-6">
           <p className="text-amber-800">
-            Unity WebGL player estará disponible próximamente.
+            {t('common.unityWebGLComingSoon')}
           </p>
         </div>
       )}

@@ -21,6 +21,7 @@ export const translations = {
         subtitle: 'Desarrollador Full Stack & Game Designer',
         description: 'Creando experiencias digitales y videojuegos',
         cta: 'Ver mi trabajo',
+        bio: 'Game Designer con más de 7 años de experiencia profesional, habiendo contribuido a 7 videojuegos comercializados y un proyecto de terapias mediante realidad virtual. Actualmente trabajo como Consultor de Game Design para Sindria World en el juego de terror "The Vineyard Massacre". Recientemente, he ampliado mi conjunto de habilidades para incluir Desarrollo Full Stack, construyendo aplicaciones web con Next.js, TypeScript y frameworks modernos. Estoy buscando activamente oportunidades para combinar mi experiencia en game design con mis habilidades de programación, ya sea como Game Designer, Desarrollador Full Stack, o en roles que aprovechen ambas disciplinas.',
       },
       featuredProjects: {
         title: 'Proyectos Destacados',
@@ -38,6 +39,7 @@ export const translations = {
       hero: {
         title: 'Sobre mí',
         description: 'Conoce más sobre mi experiencia y habilidades',
+        bio: 'Game Designer con más de 7 años de experiencia profesional, habiendo contribuido a 7 videojuegos comercializados y un proyecto de terapias mediante realidad virtual. Actualmente trabajo como Consultor de Game Design para Sindria World en el juego de terror "The Vineyard Massacre". Recientemente, he ampliado mi conjunto de habilidades para incluir Desarrollo Full Stack, construyendo aplicaciones web con Next.js, TypeScript y frameworks modernos. Estoy buscando activamente oportunidades para combinar mi experiencia en game design con mis habilidades de programación, ya sea como Game Designer, Desarrollador Full Stack, o en roles que aprovechen ambas disciplinas.',
       },
       skills: {
         title: 'Habilidades Técnicas',
@@ -130,6 +132,18 @@ export const translations = {
       navigation: 'Navegación',
       noProjects: 'No hay proyectos disponibles en este momento.',
       noGames: 'No hay juegos disponibles en este momento.',
+      siteName: 'Portfolio',
+      unityWebGLComingSoon: 'El reproductor Unity WebGL estará disponible próximamente.',
+      close: 'Cerrar',
+      previousImage: 'Imagen anterior',
+      nextImage: 'Imagen siguiente',
+      toggleMenu: 'Abrir/cerrar menú',
+      videoNumber: 'Video',
+      screenshotNumber: 'captura de pantalla',
+    },
+    // Personal
+    personal: {
+      title: 'Diseñador de Videojuegos & Desarrollador Full Stack',
     },
   },
   en: {
@@ -148,6 +162,7 @@ export const translations = {
         subtitle: 'Full Stack Developer & Game Designer',
         description: 'Creating digital experiences and video games',
         cta: 'View my work',
+        bio: 'Game Designer with 7+ years of professional experience, having contributed to 7 commercialized video games and a VR therapy project. Currently working as Game Design Consultant for Sindria World on the horror game "The Vineyard Massacre". Recently, I\'ve expanded my skill set to include Full Stack Development, building web applications with Next.js, TypeScript, and modern frameworks. I\'m actively seeking opportunities to combine my game design expertise with my programming skills, whether as a Game Designer, Full Stack Developer, or in roles that leverage both disciplines.',
       },
       featuredProjects: {
         title: 'Featured Projects',
@@ -165,6 +180,7 @@ export const translations = {
       hero: {
         title: 'About Me',
         description: 'Learn more about my experience and skills',
+        bio: 'Game Designer with 7+ years of professional experience, having contributed to 7 commercialized video games and a VR therapy project. Currently working as Game Design Consultant for Sindria World on the horror game "The Vineyard Massacre". Recently, I\'ve expanded my skill set to include Full Stack Development, building web applications with Next.js, TypeScript, and modern frameworks. I\'m actively seeking opportunities to combine my game design expertise with my programming skills, whether as a Game Designer, Full Stack Developer, or in roles that leverage both disciplines.',
       },
       skills: {
         title: 'Technical Skills',
@@ -257,6 +273,18 @@ export const translations = {
       navigation: 'Navigation',
       noProjects: 'No projects available at the moment.',
       noGames: 'No games available at the moment.',
+      siteName: 'Portfolio',
+      unityWebGLComingSoon: 'Unity WebGL player will be available soon.',
+      close: 'Close',
+      previousImage: 'Previous image',
+      nextImage: 'Next image',
+      toggleMenu: 'Toggle menu',
+      videoNumber: 'Video',
+      screenshotNumber: 'screenshot',
+    },
+    // Personal
+    personal: {
+      title: 'Game Designer & Full Stack Developer',
     },
   },
 } as const;

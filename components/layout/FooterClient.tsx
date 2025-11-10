@@ -54,7 +54,7 @@ export default function FooterClient({ personalInfo }: FooterClientProps) {
               {personalInfo.name}
             </h3>
             <p className="mt-2 text-sm text-slate-600">
-              {personalInfo.title}
+              {t('personal.title')}
             </p>
             <p className="mt-1 text-sm text-slate-600">
               {personalInfo.location}

@@ -34,7 +34,7 @@ export default function AboutHero({ personalInfo }: AboutHeroProps) {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="mt-6 text-lg leading-8 text-slate-600"
           >
-            {personalInfo.bio}
+            {t('about.hero.bio')}
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
