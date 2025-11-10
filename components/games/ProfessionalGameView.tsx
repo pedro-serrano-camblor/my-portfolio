@@ -4,6 +4,7 @@ import { Game } from '@/types';
 import { useState } from 'react';
 import { ExternalLink, Building2, Calendar, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useI18n } from '@/lib/i18n/context';
 
 interface ProfessionalGameViewProps {
   game: Game;
@@ -14,6 +15,7 @@ interface ProfessionalGameViewProps {
  * Muestra información de la empresa, preview de la web, y tu rol
  */
 export default function ProfessionalGameView({ game }: ProfessionalGameViewProps) {
+  const { t, locale } = useI18n();
   const [showPreview, setShowPreview] = useState(false);
 
   return (
@@ -33,7 +35,7 @@ export default function ProfessionalGameView({ game }: ProfessionalGameViewProps
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1 text-sm text-slate-600 hover:text-slate-900"
               >
-                Visitar empresa
+                {t('games.visitCompany') || 'Visitar empresa'}
                 <ExternalLink className="h-4 w-4" />
               </a>
             )}
@@ -45,7 +47,7 @@ export default function ProfessionalGameView({ game }: ProfessionalGameViewProps
       {game.role && (
         <div className="flex items-center gap-2 text-slate-700">
           <User className="h-5 w-5 text-slate-500" />
-          <span className="font-medium">Rol:</span>
+          <span className="font-medium">{t('games.role')}:</span>
           <span>{game.role}</span>
         </div>
       )}
@@ -54,8 +56,13 @@ export default function ProfessionalGameView({ game }: ProfessionalGameViewProps
       {game.releaseDate && (
         <div className="flex items-center gap-2 text-slate-700">
           <Calendar className="h-5 w-5 text-slate-500" />
-          <span className="font-medium">Lanzamiento:</span>
-          <span>{new Date(game.releaseDate).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+          <span className="font-medium">{t('games.releaseDate')}:</span>
+          <span>
+            {new Date(game.releaseDate).toLocaleDateString(
+              locale === 'en' ? 'en-US' : 'es-ES',
+              { year: 'numeric', month: 'long', day: 'numeric' }
+            )}
+          </span>
         </div>
       )}
 
@@ -69,7 +76,7 @@ export default function ProfessionalGameView({ game }: ProfessionalGameViewProps
             className="inline-flex items-center gap-2 rounded-md bg-slate-900 px-4 py-2 text-sm font-medium text-white hover:bg-slate-800 transition-colors"
           >
             <ExternalLink className="h-4 w-4" />
-            Visitar juego
+            {t('games.viewGame')}
           </a>
         </div>
       )}
@@ -79,13 +86,13 @@ export default function ProfessionalGameView({ game }: ProfessionalGameViewProps
         <div>
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-xl font-semibold text-slate-900">
-              Preview
+              {t('games.preview') || 'Preview'}
             </h3>
             <Button
               variant="outline"
               onClick={() => setShowPreview(!showPreview)}
             >
-              {showPreview ? 'Ocultar preview' : 'Mostrar preview'}
+              {showPreview ? (t('games.hidePreview') || 'Ocultar preview') : (t('games.showPreview') || 'Mostrar preview')}
             </Button>
           </div>
           {showPreview && (

@@ -5,6 +5,8 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { useI18n } from '@/lib/i18n/context';
+import LanguageSwitcher from './LanguageSwitcher';
 
 /**
  * Componente Header con navegación
@@ -13,13 +15,14 @@ import { Menu, X } from 'lucide-react';
 export default function Header() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useI18n();
 
   const navigation = [
-    { name: 'Inicio', href: '/' },
-    { name: 'Sobre mí', href: '/about' },
-    { name: 'Portfolio', href: '/portfolio' },
-    { name: 'Juegos', href: '/games' },
-    { name: 'Contacto', href: '/contact' },
+    { name: t('nav.home'), href: '/' },
+    { name: t('nav.about'), href: '/about' },
+    { name: t('nav.portfolio'), href: '/portfolio' },
+    { name: t('nav.games'), href: '/games' },
+    { name: t('nav.contact'), href: '/contact' },
   ];
 
   const isActive = (href: string) => pathname === href;
@@ -35,10 +38,10 @@ export default function Header() {
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex md:items-center md:space-x-8">
+        <div className="hidden md:flex md:items-center md:space-x-4">
           {navigation.map((item) => (
             <Link
-              key={item.name}
+              key={item.href}
               href={item.href}
               className={`relative px-3 py-2 text-sm font-medium transition-colors ${
                 isActive(item.href)
@@ -57,20 +60,23 @@ export default function Header() {
               )}
             </Link>
           ))}
+          <LanguageSwitcher />
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {isMobileMenuOpen ? (
-            <X className="h-6 w-6" />
-          ) : (
-            <Menu className="h-6 w-6" />
-          )}
-        </button>
+        {/* Mobile Menu Button and Language Switcher */}
+        <div className="flex items-center gap-2 md:hidden">
+          <LanguageSwitcher />
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile Menu */}

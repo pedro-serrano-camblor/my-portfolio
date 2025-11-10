@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import { Game } from '@/types';
 import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
+import { useI18n } from '@/lib/i18n/context';
 
 interface GameCardProps {
   game: Game;
@@ -18,6 +19,7 @@ interface GameCardProps {
  */
 export default function GameCard({ game, index = 0 }: GameCardProps) {
   const router = useRouter();
+  const { t } = useI18n();
   const isPersonal = game.gameType === 'personal';
 
   const handleCardClick = () => {
@@ -51,7 +53,7 @@ export default function GameCard({ game, index = 0 }: GameCardProps) {
                 : 'bg-purple-100 text-purple-800'
             }`}
           >
-            {isPersonal ? 'Personal' : 'Profesional'}
+            {isPersonal ? t('games.personalGame') : t('games.professionalGame')}
           </span>
         </div>
       </div>
@@ -93,7 +95,7 @@ export default function GameCard({ game, index = 0 }: GameCardProps) {
             className="flex items-center gap-1 text-sm text-slate-600 group-hover:text-slate-900"
             onClick={(e) => e.stopPropagation()}
           >
-            Ver más
+            {t('portfolio.viewMore')}
             <ExternalLink className="h-4 w-4" />
           </Link>
         </div>

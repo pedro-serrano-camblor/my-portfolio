@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import I18nProviderWrapper from "@/components/providers/I18nProviderWrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,8 +14,8 @@ export const metadata: Metadata = {
   },
   description: "Portfolio personal desarrollado con Next.js 14, TypeScript y Tailwind CSS",
   keywords: ["portfolio", "desarrollador", "web", "next.js", "typescript", "react"],
-  authors: [{ name: "Tu Nombre" }],
-  creator: "Tu Nombre",
+  authors: [{ name: "Pedro Serrano Camblor" }],
+  creator: "Pedro Serrano Camblor",
   openGraph: {
     type: "website",
     locale: "es_ES",
@@ -47,13 +48,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
+    <html lang="es" suppressHydrationWarning>
       <body className={inter.className}>
-        <div className="flex min-h-screen flex-col">
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </div>
+        <I18nProviderWrapper>
+          <div className="flex min-h-screen flex-col">
+            <Header />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </div>
+        </I18nProviderWrapper>
       </body>
     </html>
   );

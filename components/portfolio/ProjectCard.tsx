@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import { Project } from '@/types';
 import { motion } from 'framer-motion';
 import { ExternalLink, Github } from 'lucide-react';
+import { useI18n } from '@/lib/i18n/context';
 
 interface ProjectCardProps {
   project: Project;
@@ -18,6 +19,7 @@ interface ProjectCardProps {
  */
 export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
   const router = useRouter();
+  const { t } = useI18n();
 
   const handleCardClick = () => {
     router.push(`/portfolio/${project.slug}`);
@@ -79,7 +81,7 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
               className="flex items-center gap-1 text-sm text-slate-600 hover:text-slate-900"
             >
               <ExternalLink className="h-4 w-4" />
-              Demo
+              {t('portfolio.demo')}
             </a>
           )}
           {project.githubUrl && (
@@ -90,7 +92,7 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
               className="flex items-center gap-1 text-sm text-slate-600 hover:text-slate-900"
             >
               <Github className="h-4 w-4" />
-              GitHub
+              {t('portfolio.github')}
             </a>
           )}
           <Link 
@@ -98,7 +100,7 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
             className="flex items-center gap-1 text-sm text-slate-600 hover:text-slate-900 ml-auto"
             onClick={(e) => e.stopPropagation()}
           >
-            Ver más
+            {t('portfolio.viewMore')}
             <ExternalLink className="h-4 w-4" />
           </Link>
         </div>

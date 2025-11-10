@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Mail, MapPin, Github, Linkedin, Twitter, Globe } from 'lucide-react';
 import { PersonalInfo } from '@/types';
+import { useI18n } from '@/lib/i18n/context';
 
 interface ContactInfoProps {
   personalInfo: PersonalInfo;
@@ -13,15 +14,17 @@ interface ContactInfoProps {
  * Client component con animaciones
  */
 export default function ContactInfo({ personalInfo }: ContactInfoProps) {
+  const { t } = useI18n();
+
   const contactMethods = [
     {
-      name: 'Email',
+      name: t('contact.email'),
       value: personalInfo.email,
       href: `mailto:${personalInfo.email}`,
       icon: Mail,
     },
     {
-      name: 'Ubicación',
+      name: t('contact.location'),
       value: personalInfo.location,
       icon: MapPin,
     },
@@ -54,6 +57,14 @@ export default function ContactInfo({ personalInfo }: ContactInfoProps) {
     <section className="py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl">
+          <div className="mb-8 text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+              {t('contact.title')}
+            </h2>
+            <p className="mt-4 text-lg leading-7 text-slate-600">
+              {t('contact.description')}
+            </p>
+          </div>
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
             {contactMethods.map((method, index) => {
               const Icon = method.icon;
@@ -97,7 +108,7 @@ export default function ContactInfo({ personalInfo }: ContactInfoProps) {
           {socialLinks.length > 0 && (
             <div className="mt-12">
               <h2 className="text-2xl font-bold text-slate-900 mb-6">
-                Redes Sociales
+                {t('contact.socialMedia')}
               </h2>
               <div className="flex flex-wrap gap-4">
                 {socialLinks.map((social, index) => {

@@ -4,6 +4,7 @@ import { Experience } from '@/types';
 import { motion } from 'framer-motion';
 import { MapPin, Calendar, ExternalLink } from 'lucide-react';
 import Image from 'next/image';
+import { useI18n } from '@/lib/i18n/context';
 
 interface ExperienceTimelineProps {
   experiences: Experience[];
@@ -14,11 +15,13 @@ interface ExperienceTimelineProps {
  * Incluye animaciones y formato de fechas flexible
  */
 export default function ExperienceTimeline({ experiences }: ExperienceTimelineProps) {
+  const { t } = useI18n();
+
   /**
    * Formatea una fecha según su formato
    */
   const formatDate = (date: string, format?: 'full' | 'month-year' | 'year'): string => {
-    if (date === 'present') return 'Presente';
+    if (date === 'present') return t('about.experience.present');
     
     // Si tiene formato específico, usarlo
     if (format === 'year') {
@@ -46,11 +49,11 @@ export default function ExperienceTimeline({ experiences }: ExperienceTimelinePr
   const getLocationTypeText = (type: string): string => {
     switch (type) {
       case 'remote':
-        return 'Remoto';
+        return t('about.experience.remote');
       case 'onsite':
-        return 'Presencial';
+        return t('about.experience.onsite');
       case 'hybrid':
-        return 'Híbrido';
+        return t('about.experience.hybrid');
       default:
         return type;
     }

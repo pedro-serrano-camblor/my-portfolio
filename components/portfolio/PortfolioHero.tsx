@@ -3,11 +3,7 @@
 import { motion } from 'framer-motion';
 import { useI18n } from '@/lib/i18n/context';
 
-/**
- * Componente Hero para la página de contacto
- * Client component con animaciones
- */
-export default function ContactHero() {
+export default function PortfolioHero() {
   const { t } = useI18n();
 
   return (
@@ -20,7 +16,7 @@ export default function ContactHero() {
             transition={{ duration: 0.5 }}
             className="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl"
           >
-            {t('contact.hero.title')}
+            {t('portfolio.title')}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -28,7 +24,7 @@ export default function ContactHero() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="mt-6 text-lg leading-8 text-slate-600"
           >
-            {t('contact.hero.description')}
+            {t('portfolio.description')}
           </motion.p>
         </div>
       </div>

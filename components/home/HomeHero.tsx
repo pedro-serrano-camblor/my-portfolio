@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { PersonalInfo } from '@/types';
+import { useI18n } from '@/lib/i18n/context';
 
 interface HomeHeroProps {
   personalInfo: PersonalInfo;
@@ -15,6 +16,8 @@ interface HomeHeroProps {
  * Client component con animaciones
  */
 export default function HomeHero({ personalInfo }: HomeHeroProps) {
+  const { t } = useI18n();
+
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-slate-50 to-slate-100 py-20 sm:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -51,13 +54,13 @@ export default function HomeHero({ personalInfo }: HomeHeroProps) {
           >
             <Link href="/portfolio">
               <Button size="lg">
-                Ver Portfolio
+                {t('home.hero.cta')}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
             <Link href="/about">
               <Button variant="outline" size="lg">
-                Sobre mí
+                {t('nav.about')}
               </Button>
             </Link>
           </motion.div>

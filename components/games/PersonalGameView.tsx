@@ -4,6 +4,7 @@ import { Game } from '@/types';
 import Image from 'next/image';
 import { ExternalLink, Github, Play, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useI18n } from '@/lib/i18n/context';
 
 interface PersonalGameViewProps {
   game: Game;
@@ -14,6 +15,8 @@ interface PersonalGameViewProps {
  * Muestra enlaces a builds externos, GitHub, documentación, etc.
  */
 export default function PersonalGameView({ game }: PersonalGameViewProps) {
+  const { t } = useI18n();
+
   // Obtener icono según tipo de enlace
   const getLinkIcon = (type: string) => {
     switch (type) {
@@ -54,7 +57,7 @@ export default function PersonalGameView({ game }: PersonalGameViewProps) {
       {game.personalNote && (
         <div className="rounded-lg border border-blue-200 bg-blue-50 p-6">
           <h3 className="text-lg font-semibold text-blue-900 mb-2">
-            Sobre este proyecto
+            {t('games.personalNote') || 'Sobre este proyecto'}
           </h3>
           <p className="text-blue-800">{game.personalNote}</p>
         </div>
@@ -64,7 +67,7 @@ export default function PersonalGameView({ game }: PersonalGameViewProps) {
       {game.links && game.links.length > 0 && (
         <div>
           <h3 className="text-xl font-semibold text-slate-900 mb-4">
-            Enlaces
+            {t('games.links') || 'Enlaces'}
           </h3>
           <div className="flex flex-wrap gap-4">
             {game.links.map((link, index) => (
@@ -87,7 +90,7 @@ export default function PersonalGameView({ game }: PersonalGameViewProps) {
       {game.instructions && (
         <div>
           <h3 className="text-xl font-semibold text-slate-900 mb-4">
-            Instrucciones
+            {t('games.instructions')}
           </h3>
           <div className="rounded-lg border border-slate-200 bg-slate-50 p-6">
             <p className="text-slate-700 whitespace-pre-line">

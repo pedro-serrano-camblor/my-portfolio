@@ -5,13 +5,14 @@ import { Education } from '@/types';
 
 interface EducationSectionProps {
   education: Education[];
+  title?: string;
 }
 
 /**
  * Componente para mostrar educación
  * Client component con animaciones
  */
-export default function EducationSection({ education }: EducationSectionProps) {
+export default function EducationSection({ education, title = 'Educación' }: EducationSectionProps) {
   if (education.length === 0) return null;
 
   return (
@@ -19,7 +20,7 @@ export default function EducationSection({ education }: EducationSectionProps) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-            Educación
+            {title}
           </h2>
         </div>
         <div className="mx-auto mt-12 max-w-3xl space-y-8">

@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Mail, MapPin } from 'lucide-react';
 import { PersonalInfo } from '@/types';
+import { useI18n } from '@/lib/i18n/context';
 
 interface AboutHeroProps {
   personalInfo: PersonalInfo;
@@ -13,6 +14,8 @@ interface AboutHeroProps {
  * Client component con animaciones
  */
 export default function AboutHero({ personalInfo }: AboutHeroProps) {
+  const { t } = useI18n();
+
   return (
     <section className="bg-gradient-to-br from-slate-50 to-slate-100 py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -23,7 +26,7 @@ export default function AboutHero({ personalInfo }: AboutHeroProps) {
             transition={{ duration: 0.5 }}
             className="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl"
           >
-            Sobre mí
+            {t('about.hero.title')}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
