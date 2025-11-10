@@ -47,8 +47,8 @@ export default function ExperienceTimeline({ experiences }: ExperienceTimelinePr
     switch (type) {
       case 'remote':
         return 'Remoto';
-      case 'office':
-        return 'Oficina';
+      case 'onsite':
+        return 'Presencial';
       case 'hybrid':
         return 'Híbrido';
       default:

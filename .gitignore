@@ -41,7 +41,7 @@ next-env.d.ts
 *~
 .cursor/
 
-# Documentación interna (solo para desarrollador)
+# Documentation
 DEVELOPER.md
 GUIA_RAPIDA.md
 

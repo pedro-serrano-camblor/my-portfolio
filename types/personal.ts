@@ -1,7 +1,7 @@
 /**
  * Tipo de ubicación de trabajo
  */
-export type WorkLocationType = 'remote' | 'office' | 'hybrid';
+export type WorkLocationType = 'remote' | 'hybrid' | 'onsite';
 
 /**
  * Ubicación de trabajo
@@ -11,7 +11,7 @@ export interface WorkLocation {
   city: string;
   /** País */
   country: string;
-  /** Tipo de trabajo: remoto, oficina o híbrido */
+  /** Tipo de trabajo: remoto, presencial u híbrido */
   type: WorkLocationType;
 }
 

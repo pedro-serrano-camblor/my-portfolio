@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Mail, MapPin, Github, Linkedin, Twitter } from 'lucide-react';
+import { Mail, MapPin, Github, Linkedin, Twitter, Globe } from 'lucide-react';
 import { PersonalInfo } from '@/types';
 
 interface ContactInfoProps {
@@ -42,6 +42,11 @@ export default function ContactInfo({ personalInfo }: ContactInfoProps) {
       name: 'Twitter',
       href: personalInfo.socialLinks.twitter,
       icon: Twitter,
+    },
+    {
+      name: 'Portfolio',
+      href: personalInfo.socialLinks.portfolio,
+      icon: Globe,
     },
   ].filter(link => link.href);
 
